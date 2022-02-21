@@ -9,11 +9,20 @@
     <title>favorite pieces</title>
 </head>
 <body>
-    <h1>My Favorites from Chicago Art</h1>
+    <h1>My Favorite Pieces Art Institute of Chicago</h1>
     <section class="container">
-        <div class="images">
-            <figure class="favorite-images" id="img1" onclick="">
-                <img class="favorites" src="https://www.artic.edu/iiif/2/6e72d851-0c15-978f-d0cf-0eadb94c0cf9/full/400,/0/default.jpg" alt="">
+        <div class="image-container">
+            <figure class="favorite-images" id="img1" onclick="event.getElementById(); getInfo(this.id, event)">
+                <img class="favorites" src="https://www.artic.edu/iiif/2/6e72d851-0c15-978f-d0cf-0eadb94c0cf9/full/400,/0/default.jpg" alt="Excavation,1950">
+            </figure>
+            <figure class="favorite-images" id="img2" onclick="getInfo()">
+                <img class="favorites" src="https://www.artic.edu/iiif/2/f9932dea-7999-ea96-fcab-965e027051c2/full/400,/0/default.jpg" alt="Greyed-Rainbow,1953">
+            </figure>           
+            <figure class="favorite-images" id="img3" onclick="getInfo()">
+                <img class="favorites" src="https://www.artic.edu/iiif/2/0f951635-312c-0829-451b-553f461c5518/full/400,/0/default.jpg" alt="Cupid-Chastised,1613">
+            </figure>
+            <figure class="favorite-images" id="img4" onclick="getInfo()">
+                <img class="favorites" src="https://www.artic.edu/iiif/2/0f07eb70-3818-676a-c047-b1672d0a8277/full/400,/0/default.jpg" alt="The-Night-is-Stirring(La-nuit-remue)">
             </figure>
         </div>
     </section>

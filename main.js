@@ -1,39 +1,76 @@
-let getImage;
-let getImageInfo;
+let imgInfo;
+let showInfo;
 
-const _getURL = async () => {
-    const result = await fetch(`https://api.artic.edu/api/vi`, {
+const _getAPI = async () => {
+    const result = await fetch(`https://api.artic.edu/api/v1`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/ld+json',
+            'Content-Type': 'application/json',
             'AIC-User-Agent': 'aicFavorites (jsilvernale21@gmail.com)'
         },
+        body: 'grant_type=None'
     });
     const data = await result.json();
-    return data.access_token
+    return data
 }
 
-function getImage(src) {
-    switch(image-1){   
-        case 'img1': {
-            "data", {
-                "id": 27992,
-                "title": "A Sunday on La Grande Jatte-1884",
-                "image_id": "1adf2696-8489-499b-cad2-821d7fde4b33",
-            },
-            "config", {
-                "iiif_url": "https://www.artic.edu/iiif/2"
-            }
+async function clickedEvent(img_index, item_index){
+    let title = document.getElementsByTagName('img')[img_index].attributes[2].value
+
+    let headers = new Headers([
+        ['content-type', 'application/json'],
+        ['Accept', 'application/json'],
+        ['Authorization', `None`]
+    ]);
+
+    let request = new Request(`https://api.artic.edu/api/v1/artworks/?fields=${title}/info.json`,{
+    method: 'GET',
+    headers: headers
+    });
+
+    let result = await fetch(request);
+
+    let response = await result.json();
+
+    console.log(response)
+    let imgInfo = response.tracks.items[item_index].preview_url
+
+    if (showInfo){
+        stopDisplay();
+    }
+    display(imgInfo);
+}
+
+function getInfo(id, event){
+    switch(id){
+        case 'img1':{
+            event.getElementById();
+            clickedEvent(0,0)
+            break;
+        }
+        case 'img2':{
+            event.getElementById();
+            clickedEvent(1,0)
+            break;
+        }
+        case 'img3':{
+            event.getElementById();
+            clickedEvent(2,0)
+            break;
+        }
+        case 'img4':{
+            event.getElementById();
+            clickedEvent(3,0)
+            break;
         }
     }
 }
 
-async function clickedEvent(img_index, item_index) {
-    let track = document.getElementsByTagName('img')[img_index].attributes[2].value
+function display(url){
+    showInfo = new Info(url);
+    return showInfo
+}
 
-    let headers = new Headers ([
-        ['Content-type', 'application/json'],
-        ['Accept', 'application/json'],
-        ['Authorization',  `None`]
-    ]);
+function stopDisplay(){
+    return None
 }

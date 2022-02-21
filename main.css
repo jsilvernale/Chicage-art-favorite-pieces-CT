@@ -2,6 +2,7 @@
     background: black;
     padding: 0px;
     margin: 0px;
+    margin-bottom: 20px;
 }
 
 h1{
@@ -9,4 +10,29 @@ h1{
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    font-size:50px;
+}
+
+.container{
+    margin: 50px;
+}
+
+#img1{
+    display:flex;
+    justify-content: end;
+}
+
+#img2{
+    display:flex;
+    justify-content: start;
+}
+
+#img3{
+    display:flex;
+    justify-content: end;
+}
+
+img4{
+    display:flex;
+    justify-content: start;
 }
