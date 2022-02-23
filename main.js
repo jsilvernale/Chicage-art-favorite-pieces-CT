@@ -1,76 +1,64 @@
-let imgInfo;
-let showInfo;
-
-const _getAPI = async () => {
-    const result = await fetch(`https://api.artic.edu/api/v1`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'AIC-User-Agent': 'aicFavorites (jsilvernale21@gmail.com)'
-        },
-        body: 'grant_type=None'
-    });
-    const data = await result.json();
-    return data
+getInfo = (image) => {  
+// for(let x = 0; x < 4; x++){
+    // let image = document.querySelector(`img`).getAttribute(`alt`)    
+    fetch(`https://api.artic.edu/api/v1/artworks/${image}`)
+    .then(response => response.json())
+    .then(my_data => {      
+        console.log(my_data)
+        let art_name = my_data.data.title
+        document.querySelector(`#img-name0`).innerHTML=art_name;
+        let artist = my_data.data.artist_title
+        document.querySelector(`#artist0`).innerHTML=artist;
+        let year = my_data.data.date_display
+        document.querySelector(`#date0`).innerHTML=year;
+    })
 }
 
-async function clickedEvent(img_index, item_index){
-    let title = document.getElementsByTagName('img')[img_index].attributes[2].value
-
-    let headers = new Headers([
-        ['content-type', 'application/json'],
-        ['Accept', 'application/json'],
-        ['Authorization', `None`]
-    ]);
-
-    let request = new Request(`https://api.artic.edu/api/v1/artworks/?fields=${title}/info.json`,{
-    method: 'GET',
-    headers: headers
-    });
-
-    let result = await fetch(request);
-
-    let response = await result.json();
-
-    console.log(response)
-    let imgInfo = response.tracks.items[item_index].preview_url
-
-    if (showInfo){
-        stopDisplay();
-    }
-    display(imgInfo);
+getInfo1 = (image) => {  
+// for(let x = 0; x < 4; x++){
+    // let image = document.querySelector(`img`).getAttribute(`alt`)    
+    fetch(`https://api.artic.edu/api/v1/artworks/${image}`)
+    .then(response => response.json())
+    .then(my_data => {      
+        console.log(my_data)
+        let art_name = my_data.data.title
+        document.querySelector(`#img-name1`).innerHTML=art_name;
+        let artist = my_data.data.artist_title
+        document.querySelector(`#artist1`).innerHTML=artist;
+        let year = my_data.data.date_display
+        document.querySelector(`#date1`).innerHTML=year;
+    })
 }
 
-function getInfo(id, event){
-    switch(id){
-        case 'img1':{
-            event.getElementById();
-            clickedEvent(0,0)
-            break;
-        }
-        case 'img2':{
-            event.getElementById();
-            clickedEvent(1,0)
-            break;
-        }
-        case 'img3':{
-            event.getElementById();
-            clickedEvent(2,0)
-            break;
-        }
-        case 'img4':{
-            event.getElementById();
-            clickedEvent(3,0)
-            break;
-        }
-    }
+getInfo2 = (image) => {  
+// for(let x = 0; x < 4; x++){
+    // let image = document.querySelector(`img`).getAttribute(`alt`)    
+    fetch(`https://api.artic.edu/api/v1/artworks/${image}`)
+    .then(response => response.json())
+    .then(my_data => {      
+        console.log(my_data)
+        let art_name = my_data.data.title
+        document.querySelector(`#img-name2`).innerHTML=art_name;
+        let artist = my_data.data.artist_title
+        document.querySelector(`#artist2`).innerHTML=artist;
+        let year = my_data.data.date_display
+        document.querySelector(`#date2`).innerHTML=year;
+    })
 }
 
-function display(url){
-    showInfo = new Info(url);
-    return showInfo
+getInfo3 = (image) => {  
+// for(let x = 0; x < 4; x++){
+    // let image = document.querySelector(`img`).getAttribute(`alt`)    
+    fetch(`https://api.artic.edu/api/v1/artworks/${image}`)
+    .then(response => response.json())
+    .then(my_data => {      
+        console.log(my_data)
+        let art_name = my_data.data.title
+        document.querySelector(`#img-name3`).innerHTML=art_name;
+        let artist = my_data.data.artist_title
+        document.querySelector(`#artist3`).innerHTML=artist;
+        let year = my_data.data.date_display
+        document.querySelector(`#date3`).innerHTML=year;
+    })
 }
 
-function stopDisplay(){
-    return None
-}

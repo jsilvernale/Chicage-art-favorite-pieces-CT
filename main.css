@@ -1,12 +1,12 @@
 *{
-    background: black;
+    background: blueviolet;
+    color: white;
     padding: 0px;
     margin: 0px;
     margin-bottom: 20px;
 }
 
 h1{
-    color:white;
     display: flex;
     justify-content: center;
     padding-top: 20px;
@@ -17,22 +17,31 @@ h1{
     margin: 50px;
 }
 
-#img1{
+.favorites{
+    height: 400px;
+    width: 400px;
+}
+
+#img-0{
     display:flex;
     justify-content: end;
 }
 
-#img2{
+#img-1{
     display:flex;
     justify-content: start;
 }
 
-#img3{
+#img-2{
     display:flex;
     justify-content: end;
 }
 
-img4{
+#img-3{
     display:flex;
     justify-content: start;
+}
+
+li{
+    list-style-type: none;
 }
